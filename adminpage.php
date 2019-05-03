@@ -24,8 +24,11 @@ if ($db) {
 $selectSql = "SELECT * FROM customer";
 $result = pg_query($db, $selectSql);
 
-while ($row = pg_fetch_row($result)) {
-    var_dump($row);
+foreach ($result as $results) {
+  $userid = $results['id'];
+  $username = $results['username'];
+  $useradd = $useradd['useradd'];
+}
 }
 ?>
 // web page
@@ -35,20 +38,20 @@ while ($row = pg_fetch_row($result)) {
   <table class="table table-bordered">
     <thead>
       <tr>
-        <th>Firstname</th>
-        <th>Lastname</th>
-        <th>Email</th>
+        <th>ID</th>
+        <th>Customer name</th>
+        <th>Address</th>
       </tr>
     </thead>
     <tbody>
       <?php
-      foreach ($row as $key => $value) {
-         echo "<tr>$row[$key]</tr>";
-         echo "<td>$row[$key]</td>";
-         echo "<td>$row[$key]</td>";
-         echo "<td>$row[$key]</td>";
-         echo "<tr>$row[$key]</tr>";
-       }
+      foreach ($results as $key => $value) {
+        echo "<tr></tr>";
+        echo "<td>$results['userid']</td>";  
+        echo "<td>$results['username']</td>";  
+        echo "<td>$results['useradd']</td>";  
+        echo "<tr></tr>";
+      }
       ?>
       <tr>
         <td>John</td>
