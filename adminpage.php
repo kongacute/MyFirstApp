@@ -20,6 +20,8 @@ $login2 = pg_query($db, $checkuser);
 if ($login1 >= 1)
 {
   $result1 = pg_query($db, $queryuser);
+  if ($results1) echo "ok";
+  else echo "fk";
   foreach ($result1 as $results1) {
     $userid = $results1['Customer ID'];
     $username = $results1['User Name'];
