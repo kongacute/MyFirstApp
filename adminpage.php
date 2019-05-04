@@ -53,7 +53,7 @@ else $loginstatus = false;
 ?>
 <html lang="en">
 <head>
-  <<?php 
+  <?php 
     if ($adminacc) echo "<title>Seller - ATN Company</title>";
     else echo "<title>Adminator Information - ATN Company</title>";
   ?>
