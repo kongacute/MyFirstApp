@@ -21,15 +21,15 @@ if ($login1 >= 1)
 {
   $result1 = pg_query($db, $queryuser);
   foreach ($result1 as $results1) {
-    $userid = $results['Customer ID'];
-    $username = $results['User Name'];
-    $password = $results['Password'];
-    $name = $results['Name'];
-    $add = $results['Address'];
-    $city = $results['City'];
-    $region = $results['Region'];
-    $country = $results['Country'];
-    $phone = $results['Phone'];
+    $userid = $results1['Customer ID'];
+    $username = $results1['User Name'];
+    $password = $results1['Password'];
+    $name = $results1['Name'];
+    $add = $results1['Address'];
+    $city = $results1['City'];
+    $region = $results1['Region'];
+    $country = $results1['Country'];
+    $phone = $results1['Phone'];
   }
   $admin = true;
 }
@@ -37,15 +37,15 @@ else if ($login2 >= 1)
 {
   $result2 = pg_query($db, $queryadmin); 
   foreach ($result2 as $results2) {
-    $adminid = $results['Adminator ID'];
-    $username = $results['User Name'];
-    $password = $results['Password'];
-    $name = $results['Name'];
-    $add = $results['Address'];
-    $city = $results['City'];
-    $region = $results['Region'];
-    $country = $results['Country'];
-    $phone = $results['Phone'];
+    $adminid = $results2['Adminator ID'];
+    $username = $results2['User Name'];
+    $password = $results2['Password'];
+    $name = $results2['Name'];
+    $add = $results2['Address'];
+    $city = $results2['City'];
+    $region = $results2['Region'];
+    $country = $results2['Country'];
+    $phone = $results2['Phone'];
   }
 }
 else $loginstatus = false;
