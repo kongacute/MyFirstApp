@@ -1,5 +1,4 @@
 <!DOCTYPE html>
--- connect to database 
 <?php
 $db_url = getenv("DATABASE_URL") ?: "postgres://stejeexemgbraf:a5a875444f2192a1fb8982b181a046ce7c194400d26f9c583934ddb28d6a7b80@ec2-50-19-127-115.compute-1.amazonaws.com:5432/d4brobjaq8sj8t";
 
@@ -124,16 +123,16 @@ else { ?>
     </thead>
     <tbody>
       <?php
-      foreach ($results as $key => $value) {
-          echo "<tr></tr>";
-          echo "<td>" . $results['Customer ID'] . "</td>";  
-          echo "<td>" . $results['Name'] . "</td>";  
-          echo "<td>" . $results['Address'] . "</td>";
-          echo "<td>" . $results['City'] . "</td>";
-          echo "<td>" . $results['Region'] . "</td>";
-          echo "<td>" . $results['Country'] . "</td>";
-          echo "<td>" . $results['Phone'] . "</td>";  
-          echo "<tr></tr>";
+      for ($i=0; $i < (sizeof($userid)/sizeof($userid)); $i++) { 
+        echo "<tr></tr>";
+        echo "<td>" . $ . "</td>";  
+        echo "<td>" . $results['Name'] . "</td>";  
+        echo "<td>" . $results['Address'] . "</td>";
+        echo "<td>" . $results['City'] . "</td>";
+        echo "<td>" . $results['Region'] . "</td>";
+        echo "<td>" . $results['Country'] . "</td>";
+        echo "<td>" . $results['Phone'] . "</td>";  
+        echo "<tr></tr>";
       }
       ?>
     </tbody>
