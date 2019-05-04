@@ -5,7 +5,7 @@ $db_url = getenv("DATABASE_URL") ?: "postgres://stejeexemgbraf:a5a875444f2192a1f
 
 $admin = false;
 $loginstatus = true;
-int $currentid = 0;
+$currentid = 0;
 
 $db = pg_connect($db_url);
 
