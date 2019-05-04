@@ -104,7 +104,7 @@ else $loginstatus = false;
     </thead>
   </table>
 </div>
-
+<?php } ?>
 -- Webpage for admin
 <?php else { ?>
 <div class="container">
