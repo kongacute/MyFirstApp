@@ -123,15 +123,15 @@ else { ?>
     </thead>
     <tbody>
       <?php
-      for ($i=0; $i < (sizeof($userid)/sizeof($userid)); $i++) { 
+      for ($i = 0; $i < (sizeof($userid)/sizeof($userid)); $i++) { 
         echo "<tr></tr>";
-        echo "<td>" . $userid . "</td>";  
-        echo "<td>" . $name. "</td>";  
-        echo "<td>" . $add . "</td>";
-        echo "<td>" . $city . "</td>";
-        echo "<td>" . $region . "</td>";
-        echo "<td>" . $country . "</td>";
-        echo "<td>" . $phone . "</td>";  
+        echo "<td>" . $userid[$i] . "</td>";  
+        echo "<td>" . $name[$i] . "</td>";  
+        echo "<td>" . $add[$i] . "</td>";
+        echo "<td>" . $city[$i] . "</td>";
+        echo "<td>" . $region[$i] . "</td>";
+        echo "<td>" . $country[$i] . "</td>";
+        echo "<td>" . $phone[$i] . "</td>";  
         echo "<tr></tr>";
       }
       ?>
