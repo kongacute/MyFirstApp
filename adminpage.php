@@ -3,8 +3,8 @@
 <?php
 $db_url = getenv("DATABASE_URL") ?: "postgres://stejeexemgbraf:a5a875444f2192a1fb8982b181a046ce7c194400d26f9c583934ddb28d6a7b80@ec2-50-19-127-115.compute-1.amazonaws.com:5432/d4brobjaq8sj8t";
 
-boolean $admin = false;
-boolean $loginstatus = true;
+$admin = false;
+$loginstatus = true;
 int $currentid = 0;
 
 $db = pg_connect($db_url);
