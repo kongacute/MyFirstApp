@@ -63,7 +63,7 @@ else $loginstatus = false;
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
 </head>
 <body>
-<?php if ($admin) { ?>
+<?php if ($admin = false) { ?>
 <div class="container">
   <h2>Adminator Information</h2>           
   <table class="table">
@@ -125,13 +125,13 @@ else { ?>
       <?php
       for ($i=0; $i < (sizeof($userid)/sizeof($userid)); $i++) { 
         echo "<tr></tr>";
-        echo "<td>" . $ . "</td>";  
-        echo "<td>" . $results['Name'] . "</td>";  
-        echo "<td>" . $results['Address'] . "</td>";
-        echo "<td>" . $results['City'] . "</td>";
-        echo "<td>" . $results['Region'] . "</td>";
-        echo "<td>" . $results['Country'] . "</td>";
-        echo "<td>" . $results['Phone'] . "</td>";  
+        echo "<td>" . $userid . "</td>";  
+        echo "<td>" . $name. "</td>";  
+        echo "<td>" . $add . "</td>";
+        echo "<td>" . $city . "</td>";
+        echo "<td>" . $region . "</td>";
+        echo "<td>" . $country . "</td>";
+        echo "<td>" . $phone . "</td>";  
         echo "<tr></tr>";
       }
       ?>
