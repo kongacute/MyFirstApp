@@ -142,6 +142,6 @@ else $loginstatus = false;
     </tbody>
   </table>
 </div>
-<<?php } ?>
+<?php } ?>
 </body>
 </html>
