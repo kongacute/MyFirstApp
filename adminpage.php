@@ -19,17 +19,17 @@ $login1 = pg_query($db, $checkadmin);
 $login2 = pg_query($db, $checkuser);
 if ($login1 >= 1)
 {
-  $result1 = pg_fetch_assoc(pg_query($db, $queryuser));
-  foreach ($result1 as $results1) {
-    $userid = $results1['Customer ID'];
-    $username = $results1['User Name'];
-    $password = $results1['Password'];
-    $name = $results1['Name'];
-    $add = $results1['Address'];
-    $city = $results1['City'];
-    $region = $results1['Region'];
-    $country = $results1['Country'];
-    $phone = $results1['Phone'];
+  $result1 = pg_query($db, $queryuser);
+  while ($row = $result1->fetch_assoc()) {
+    $userid = $result1['Customer ID'];
+    $username = $result1['User Name'];
+    $password = $result1['Password'];
+    $name = $result1['Name'];
+    $add = $result1['Address'];
+    $city = $result1['City'];
+    $region = $result1['Region'];
+    $country = $result1['Country'];
+    $phone = $result1['Phone'];
   }
   $admin = true;
 }
