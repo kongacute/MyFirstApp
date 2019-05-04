@@ -19,7 +19,7 @@ $login1 = pg_query($db, $checkadmin);
 $login2 = pg_query($db, $checkuser);
 if ($login1 >= 1)
 {
-  $result1 = pg_fetch_assoc((pg_query($db, $queryuser));
+  $result1 = pg_fetch_assoc(pg_query($db, $queryuser));
   foreach ($result1 as $results1) {
     $userid = $results1['Customer ID'];
     $username = $results1['User Name'];
