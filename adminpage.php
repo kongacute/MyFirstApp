@@ -14,7 +14,7 @@ $pwd = $_POST['pwd'];
 $checkuser = "SELECT COUNT(*) FROM 'customer' WHERE 'User Name' = $uname";
 $checkadmin = "SELECT COUNT(*) FROM 'admin' WHERE 'User Name' = $uname";
 $queryuser = "SELECT * FROM 'customer'";
-$queryadmin = "SELECT * FROM 'admin WHERE 'User Name' = $uname";
+$queryadmin = "SELECT * FROM 'admin' WHERE 'User Name' = $uname";
 $login1 = pg_query($db, $checkadmin);
 $login2 = pg_query($db, $checkuser);
 if ($login1 >= 1)
