@@ -71,7 +71,7 @@ span.psw {
 
 <h2>Login Form</h2>
 
-<form action="/accinfo.php" method="post">
+<form action="/adminpage.php" method="post">
   <div class="imgcontainer">
   </div>
   <div class="container">
