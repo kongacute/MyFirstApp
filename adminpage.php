@@ -119,7 +119,7 @@ else { ?>
     </thead>
     <tbody>
       <?php
-      for ($i = 0; $i < (sizeof($userid)/sizeof($userid)); $i++) { 
+      for ($i = 0; $i < 10; $i++) { 
         echo "<tr></tr>";
         echo "<td>" . $userid[$i] . "</td>";  
         echo "<td>" . $name[$i] . "</td>";  
