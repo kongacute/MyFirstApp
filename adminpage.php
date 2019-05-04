@@ -126,13 +126,13 @@ else { ?>
       <?php
       foreach ($results as $key => $value) {
           echo "<tr></tr>";
-          echo "<td>$results['Customer ID']</td>";  
-          echo "<td>$results['Name']</td>";  
-          echo "<td>$results['Address']</td>";
-          echo "<td>$results['City']</td>";
-          echo "<td>$results['Region']</td>";
-          echo "<td>$results['Country']</td>";
-          echo "<td>$results['Phone']</td>";  
+          echo "<td>" . $results['Customer ID'] . "</td>";  
+          echo "<td>" . $results['Name'] . "</td>";  
+          echo "<td>" . $results['Address'] . "</td>";
+          echo "<td>" . $results['City'] . "</td>";
+          echo "<td>" . $results['Region'] . "</td>";
+          echo "<td>" . $results['Country'] . "</td>";
+          echo "<td>" . $results['Phone'] . "</td>";  
           echo "<tr></tr>";
       }
       ?>
