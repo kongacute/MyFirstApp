@@ -125,8 +125,6 @@ else $loginstatus = false;
     <tbody>
       <?php
       foreach ($results as $key => $value) {
-        if ($results['admin'] == '0')
-        {
           echo "<tr></tr>";
           echo "<td>$results['Customer ID']</td>";  
           echo "<td>$results['Name']</td>";  
@@ -136,7 +134,6 @@ else $loginstatus = false;
           echo "<td>$results['Country']</td>";
           echo "<td>$results['Phone']</td>";  
           echo "<tr></tr>";
-        }
       }
       ?>
     </tbody>
