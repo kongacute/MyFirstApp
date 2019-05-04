@@ -20,16 +20,13 @@ $login2 = pg_query($db, $checkuser);
 if ($login1 >= 1)
 {
   $result1 = pg_query($db, $queryuser);
-  while ($row = $result1->fetch_assoc()) {
-    $userid = $result1['Customer ID'];
-    $username = $result1['User Name'];
-    $password = $result1['Password'];
-    $name = $result1['Name'];
-    $add = $result1['Address'];
-    $city = $result1['City'];
-    $region = $result1['Region'];
-    $country = $result1['Country'];
-    $phone = $result1['Phone'];
+  foreach ($result1 as $results1) {
+    $userid = $results1['Customer ID'];
+    $name = $results1['Name'];
+    $add = $results1['Address'];
+    $city = $results1['City'];
+    $region = $results1['Region'];
+    $phone = $results1['Phone'];
   }
   $admin = true;
 }
@@ -38,8 +35,6 @@ else if ($login2 >= 1)
   $result2 = pg_query($db, $queryadmin); 
   foreach ($result2 as $results2) {
     $adminid = $results2['Adminator ID'];
-    $username = $results2['User Name'];
-    $password = $results2['Password'];
     $name = $results2['Name'];
     $add = $results2['Address'];
     $city = $results2['City'];
