@@ -64,7 +64,7 @@ else $loginstatus = false;
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
 </head>
 <body>
-  <<?php if ($admin) { ?>
+<?php if ($admin) { ?>
 <div class="container">
   <h2>Adminator Information</h2>           
   <table class="table">
