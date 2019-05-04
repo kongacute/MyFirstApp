@@ -32,8 +32,9 @@ if ($login1 >= 1)
 }
 else if ($login2 >= 1)
 {
-  $result2 = pg_query($db, $queryadmin); 
-  foreach ($result2 as $results2) {
+  $result2 = pg_query($db, $queryadmin);
+  $row2 = pg_fetch_row($result2);
+  foreach ($row2 as $results2) {
     $adminid = $results2['Adminator ID'];
     $name = $results2['Name'];
     $add = $results2['Address'];
