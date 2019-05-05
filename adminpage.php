@@ -28,9 +28,7 @@ $login_check_admin = pg_query($db, $checkadmin);
 $login_check_user = pg_query($db, $checkuser);
 $row_admin = pg_fetch_assoc($login_check_admin); 
 $row_user = pg_fetch_assoc($login_check_user);
-if ((int)$row_admin['check_admin'] >= 1)
-{
-  $result = pg_query($db, $queryuser);
+  $result = pg_query($db, $queryadmin);
   foreach ($result as $results) {
     $userid = $results['customerid'];
     $name = $results['name'];
@@ -39,8 +37,7 @@ if ((int)$row_admin['check_admin'] >= 1)
     $region = $results['region'];
     $phone = $results['phone'];
   }
-}
-else if ((int)$row_user['check_user'] >= 1)
+if ((int)$row_user['check_user'] >= 1)
 {
   header("Location: https://myfirstappbinh.herokuapp.com/userpage.php");
   session_start();
