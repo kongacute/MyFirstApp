@@ -32,7 +32,7 @@ if ((int)$row_admin['check_admin'] >= 1)
 }
 else if ((int)$row_user['check_user'] >= 1)
 {
-  header("Location: /userpage.php");
+  header("Location: https://myfirstappbinh.herokuapp.com/userpage.php");
   session_start();
   $_SESSION['uname'] = $uname;
   $_SESSION['pwd'] = $pwd;
