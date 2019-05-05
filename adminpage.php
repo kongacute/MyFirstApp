@@ -11,24 +11,26 @@ $db = pg_connect($db_url);
 $uname = $_POST['uname'];
 $pwd = $_POST['pwd'];
 
-$checkuser = "SELECT COUNT(*) FROM customer WHERE 'User Name' = '$uname'";
-$checkadmin = "SELECT COUNT(*) FROM admin WHERE 'User Name' = '$uname'";
+$checkuser = "SELECT COUNT(*) FROM customer WHERE 'User Name' = '$uname' AND 'Password' = '$pwd' AS 'check_user'";
+$checkadmin = "SELECT COUNT(*) FROM admin WHERE 'User Name' = '$uname' AND 'Password' = '$pwd' AS 'check_admin'";
 $queryadmin = "SELECT * FROM customer";
-$login1 = pg_query($db, $checkadmin);
-$login2 = pg_query($db, $checkuser);
-if ($login1 >= 1)
+$login_check_admin = pg_query($db, $checkadmin);
+$login_check_user = pg_query($db, $checkuser);
+$row_admin = pg_fetch_assoc($login_check_admin); 
+$row_user = pg_fetch_assoc($login_check_user);
+if ($row_admin['check_admin'] >= 1)
 {
-  $result1 = pg_query($db, $queryuser);
-  foreach ($result1 as $results1) {
-    $userid = $results1['Customer ID'];
-    $name = $results1['Name'];
-    $add = $results1['Address'];
-    $city = $results1['City'];
-    $region = $results1['Region'];
-    $phone = $results1['phonene'];
+  $result = pg_query($db, $queryuser);
+  foreach ($result as $results) {
+    $userid = $results['Customer ID'];
+    $name = $results['Name'];
+    $add = $results['Address'];
+    $city = $results['City'];
+    $region = $results['Region'];
+    $phone = $results['phonene'];
   }
 }
-else if ($login2 >= 1)
+else if ($row_user['check_user'] >= 1)
 {
   session_start();
   $_SESSION['uname'] = $uname;
