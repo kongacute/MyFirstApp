@@ -80,7 +80,11 @@ span.psw {
 
     <label for="psw"><b>Password</b></label>
     <input type="password" placeholder="Enter Password" name="psw" required>
-        
+    <?php
+    session_start();
+    if (!$_SESSION['loginstatus']) {?>
+    <label>Wrong user name or password! Please check again!</label>
+    }?>    
     <button type="submit">Login</button>
     <label>
       <input type="checkbox" checked="checked" name="remember"> Remember me

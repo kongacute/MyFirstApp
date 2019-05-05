@@ -13,8 +13,7 @@ $pwd = $_POST['pwd'];
 
 $checkuser = "SELECT COUNT(*) FROM customer WHERE 'User Name' = '$uname'";
 $checkadmin = "SELECT COUNT(*) FROM admin WHERE 'User Name' = '$uname'";
-$queryuser = "SELECT * FROM customer";
-$queryadmin = "SELECT * FROM admin WHERE 'User Name' = '$uname'";
+$queryadmin = "SELECT * FROM customer";
 $login1 = pg_query($db, $checkadmin);
 $login2 = pg_query($db, $checkuser);
 if ($login1 >= 1)
@@ -26,32 +25,25 @@ if ($login1 >= 1)
     $add = $results1['Address'];
     $city = $results1['City'];
     $region = $results1['Region'];
-    $phone = $results1['Phone'];
+    $phone = $results1['phonene'];
   }
-  $admin = true;
 }
 else if ($login2 >= 1)
 {
-  $result2 = pg_query($db, $queryadmin);
-  $row2 = pg_fetch_row($result2);
-  foreach ($row2 as $results2) {
-    $adminid = $results2['Adminator ID'];
-    $name = $results2['Name'];
-    $add = $results2['Address'];
-    $city = $results2['City'];
-    $region = $results2['Region'];
-    $country = $results2['Country'];
-    $phone = $results2['Phone'];
-  }
+  session_start();
+  $_SESSION['uname'] = $uname;
+  $_SESSION['pwd'] = $pwd;
 }
-else $loginstatus = false;
+else
+{
+  header("Location: /index.php");
+  $loginstatus = false;
+  $_SESSION['$loginstatus'] = $loginstatus;
+}
 ?>
 <html lang="en">
 <head>
-  <?php 
-    if ($adminacc) echo "<title>Seller - ATN Company</title>";
-    else echo "<title>Adminator Information - ATN Company</title>";
-  ?>
+  <title>Seller - ATN Company</title>"
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
@@ -59,49 +51,6 @@ else $loginstatus = false;
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
 </head>
 <body>
-<?php if ($admin = false) { ?>
-<div class="container">
-  <h2>Adminator Information</h2>           
-  <table class="table">
-    <thead>
-      <?php 
-        echo "
-        <tr>
-          <th>Adminator ID</th>
-          <th>" . $admin . "</th>
-        </tr>
-        <tr>  
-          <th>Name</th>
-          <th>" . $name . "</th>
-        </tr>
-        <tr>
-          <th>Address</th>
-          <th>" . $add . "</th>
-        </tr>
-        <tr>
-          <th>City</th>
-          <th>" . $city . "</th>
-        </tr>
-        <tr>
-          <th>Region</th>
-          <th>" . $region . "</th>
-        </tr>
-        <tr>
-          <th>Country</th>
-          <th>" . $country . "</th>
-        </tr>
-         <tr> 
-          <th>Phone</th>
-          <th>" . $phone . "</th>
-        </tr>
-        ";
-      ?>
-    </thead>
-  </table>
-</div>
-<?php }
-// Webpage for admin
-else { ?>
 <div class="container">
   <h2>Customers List</h2>
   <p>List of customers</p>            
@@ -134,6 +83,5 @@ else { ?>
     </tbody>
   </table>
 </div>
-<?php } ?>
 </body>
 </html>
