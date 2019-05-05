@@ -11,6 +11,8 @@ $pwd = $_POST['pwd'];
 
 $checkuser = "SELECT COUNT(*) INTO check_user FROM customer WHERE 'User Name' = '$uname' AND 'Password' = '$pwd'";
 $checkadmin = "SELECT COUNT(*) INTO check_admin FROM admin WHERE 'User Name' = '$uname' AND 'Password' = '$pwd'";
+$delete_admin_check = "DROP TABLE IF EXISTS 'check_admin'";
+$delete_user_check = "DROP TABLE IF EXISTS 'check_user'";
 $queryadmin = "SELECT * FROM customer";
 $login_check_admin = pg_query($db, $checkadmin);
 $login_check_user = pg_query($db, $checkuser);
@@ -41,6 +43,8 @@ else
   $loginstatus = false;
   $_SESSION['$loginstatus'] = $loginstatus;
 }
+$delete_admin = pg_query($db, $delete_admin_check);
+$delete_user = pg_query($db, $delete_user_check);
 ?>
 <html lang="en">
 <head>

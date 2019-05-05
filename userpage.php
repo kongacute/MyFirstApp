@@ -11,7 +11,7 @@ $db_url = getenv("DATABASE_URL") ?: "postgres://stejeexemgbraf:a5a875444f2192a1f
 $db = pg_connect($db_url);
 
 $queryuser = "SELECT * FROM customer WHERE 'User Name' = '$uname' AND 'Password' = '$pwd'";
-$result1 = pg_query($db, $queryuser);
+$result = pg_query($db, $queryuser);
 foreach ($result as $results) {
    $userid = $results['Customer ID'];
    $name = $results['Name'];
