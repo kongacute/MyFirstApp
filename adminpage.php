@@ -32,10 +32,10 @@ if ((int)$row_admin['check_admin'] >= 1)
 }
 else if ((int)$row_user['check_user'] >= 1)
 {
+  header("Location: /userpage.php");
   session_start();
   $_SESSION['uname'] = $uname;
   $_SESSION['pwd'] = $pwd;
-  header("Location: /userpage.php");
 }
 $delete_admin = pg_query($db, $delete_admin_check);
 $delete_user = pg_query($db, $delete_user_check);
