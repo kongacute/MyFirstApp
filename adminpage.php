@@ -69,13 +69,13 @@ $delete_user = pg_query($db, $delete_user_check);
       <?php
       for ($i = 0; $i < 10; $i++) { 
         echo "<tr></tr>";
-        echo "<td>" . $userid[$i] . "</td>";  
-        echo "<td>" . $name[$i] . "</td>";  
-        echo "<td>" . $add[$i] . "</td>";
-        echo "<td>" . $city[$i] . "</td>";
-        echo "<td>" . $region[$i] . "</td>";
-        echo "<td>" . $country[$i] . "</td>";
-        echo "<td>" . $phone[$i] . "</td>";  
+        echo "<td>" . $userid . "</td>";  
+        echo "<td>" . $name . "</td>";  
+        echo "<td>" . $add. "</td>";
+        echo "<td>" . $city . "</td>";
+        echo "<td>" . $region . "</td>";
+        echo "<td>" . $country . "</td>";
+        echo "<td>" . $phone . "</td>";  
         echo "<tr></tr>";
       }
       ?>
