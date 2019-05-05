@@ -12,14 +12,13 @@ $db = pg_connect($db_url);
 
 $queryuser = "SELECT * FROM customer WHERE 'User Name' = '$uname' AND 'Password' = '$pwd'";
 $result1 = pg_query($db, $queryuser);
-foreach ($result1 as $results1) {
-   $userid = $results1['Customer ID'];
-   $name = $results1['Name'];
-   $add = $results1['Address'];
-   $city = $results1['City'];
-   $region = $results1['Region'];
-   $phone = $results1['Phone'];
-else $loginstatus = false;
+foreach ($result as $results) {
+   $userid = $results['Customer ID'];
+   $name = $results['Name'];
+   $add = $results['Address'];
+   $city = $results['City'];
+   $region = $results['Region'];
+   $phone = $results['Phone'];
 ?>
 
 <div class="container">
