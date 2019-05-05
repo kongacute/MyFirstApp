@@ -38,11 +38,11 @@ else if ((int)$row_user['check_user'] >= 1)
   header("Location: /userpage.php");
 }
 else
-{
-  header("Location: /index.php");
-  $loginstatus = false;
-  $_SESSION['$loginstatus'] = $loginstatus;
-}
+//{
+  //header("Location: /index.php");
+  //$loginstatus = false;
+  //$_SESSION['$loginstatus'] = $loginstatus;
+//}
 $delete_admin = pg_query($db, $delete_admin_check);
 $delete_user = pg_query($db, $delete_user_check);
 ?>
