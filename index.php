@@ -82,7 +82,9 @@ span.psw {
     <input type="password" placeholder="Enter Password" name="psw" required>
     <?php
     session_start();
-    if (!$_SESSION['loginstatus']) {?>
+    $first = true;
+    $_SESSION['$first'] = $first;
+    if (!$first) {?>
     <label>Wrong user name or password! Please check again!</label>
     }?>    
     <button type="submit">Login</button>
