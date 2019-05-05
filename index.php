@@ -86,6 +86,7 @@ span.psw {
     <label>Wrong user name or password! Please check again!</label>
     }?>    
     <button type="submit">Login</button>
+  </div>
 
   <div class="container" style="background-color:#f1f1f1">
     <button type="button" class="cancelbtn">Cancel</button>
