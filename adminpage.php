@@ -33,6 +33,7 @@ else if ($login2 >= 1)
   session_start();
   $_SESSION['uname'] = $uname;
   $_SESSION['pwd'] = $pwd;
+  header("Location: /userpage.php");
 }
 else
 {
