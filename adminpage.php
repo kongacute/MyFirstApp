@@ -2,9 +2,7 @@
 <?php
 $db_url = getenv("DATABASE_URL") ?: "postgres://stejeexemgbraf:a5a875444f2192a1fb8982b181a046ce7c194400d26f9c583934ddb28d6a7b80@ec2-50-19-127-115.compute-1.amazonaws.com:5432/d4brobjaq8sj8t";
 
-$admin = false;
 $loginstatus = true;
-$currentid = 0;
 
 $db = pg_connect($db_url);
 
@@ -18,7 +16,7 @@ $login_check_admin = pg_query($db, $checkadmin);
 $login_check_user = pg_query($db, $checkuser);
 $row_admin = pg_fetch_assoc($login_check_admin); 
 $row_user = pg_fetch_assoc($login_check_user);
-if ($row_admin['check_admin'] >= 1)
+if ((int)$row_admin['check_admin'] >= 1)
 {
   $result = pg_query($db, $queryuser);
   foreach ($result as $results) {
@@ -30,7 +28,7 @@ if ($row_admin['check_admin'] >= 1)
     $phone = $results['phonene'];
   }
 }
-else if ($row_user['check_user'] >= 1)
+else if ((int)$row_user['check_user'] >= 1)
 {
   session_start();
   $_SESSION['uname'] = $uname;
