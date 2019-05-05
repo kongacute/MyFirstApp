@@ -10,15 +10,15 @@ $db_url = getenv("DATABASE_URL") ?: "postgres://stejeexemgbraf:a5a875444f2192a1f
 
 $db = pg_connect($db_url);
 
-$queryuser = "SELECT * FROM customer WHERE 'User Name' = '$uname' AND 'Password' = '$pwd'";
+$queryuser = "SELECT * FROM customer WHERE user_name = '$uname' AND password = '$pwd'";
 $result = pg_query($db, $queryuser);
 foreach ($result as $results) {
-   $userid = $results['Customer ID'];
-   $name = $results['Name'];
-   $add = $results['Address'];
-   $city = $results['City'];
-   $region = $results['Region'];
-   $phone = $results['Phone'];
+   $userid = $results['customerid'];
+   $name = $results['name'];
+   $add = $results['address'];
+   $city = $results['city'];
+   $region = $results['region'];
+   $phone = $results['phone'];
 ?>
 
 <div class="container">

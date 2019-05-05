@@ -9,8 +9,8 @@ $db = pg_connect($db_url);
 $uname = $_POST['uname'];
 $pwd = $_POST['pwd'];
 
-$checkuser = "SELECT COUNT(*) INTO check_user FROM customer WHERE 'User Name' = '$uname' AND 'Password' = '$pwd'";
-$checkadmin = "SELECT COUNT(*) INTO check_admin FROM admin WHERE 'User Name' = '$uname' AND 'Password' = '$pwd'";
+$checkuser = "SELECT COUNT(*) INTO check_user FROM customer WHERE user_name = '$uname' AND password = '$pwd'";
+$checkadmin = "SELECT COUNT(*) INTO check_admin FROM admin WHERE user_name = '$uname' AND  password = '$pwd'";
 $delete_admin_check = "DROP TABLE IF EXISTS check_admin";
 $delete_user_check = "DROP TABLE IF EXISTS check_user";
 $queryadmin = "SELECT * FROM customer";
@@ -22,12 +22,12 @@ if ((int)$row_admin['check_admin'] >= 1)
 {
   $result = pg_query($db, $queryuser);
   foreach ($result as $results) {
-    $userid = $results['Customer ID'];
-    $name = $results['Name'];
-    $add = $results['Address'];
-    $city = $results['City'];
-    $region = $results['Region'];
-    $phone = $results['phonene'];
+    $userid = $results['customerid'];
+    $name = $results['name'];
+    $add = $results['address'];
+    $city = $results['city'];
+    $region = $results['region'];
+    $phone = $results['phone'];
   }
 }
 else if ((int)$row_user['check_user'] >= 1)
@@ -38,11 +38,11 @@ else if ((int)$row_user['check_user'] >= 1)
   header("Location: /userpage.php");
 }
 else
-//{
-  //header("Location: /index.php");
-  //$loginstatus = false;
-  //$_SESSION['$loginstatus'] = $loginstatus;
-//}
+{
+  header("Location: /index.php");
+  $loginstatus = false;
+  $_SESSION['$loginstatus'] = $loginstatus;
+}
 $delete_admin = pg_query($db, $delete_admin_check);
 $delete_user = pg_query($db, $delete_user_check);
 ?>
