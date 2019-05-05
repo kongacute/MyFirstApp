@@ -9,10 +9,10 @@ $db = pg_connect($db_url);
 $uname = $_POST['uname'];
 $pwd = $_POST['pwd'];
 
-$checkuser = "SELECT COUNT(*) INTO 'check_user' FROM customer WHERE 'User Name' = '$uname' AND 'Password' = '$pwd'";
-$checkadmin = "SELECT COUNT(*) INTO 'check_admin' FROM admin WHERE 'User Name' = '$uname' AND 'Password' = '$pwd'";
-$delete_admin_check = "DROP TABLE IF EXISTS 'check_admin'";
-$delete_user_check = "DROP TABLE IF EXISTS 'check_user'";
+$checkuser = "SELECT COUNT(*) INTO check_user FROM customer WHERE 'User Name' = '$uname' AND 'Password' = '$pwd'";
+$checkadmin = "SELECT COUNT(*) INTO check_admin FROM admin WHERE 'User Name' = '$uname' AND 'Password' = '$pwd'";
+$delete_admin_check = "DROP TABLE IF EXISTS check_admin";
+$delete_user_check = "DROP TABLE IF EXISTS check_user";
 $queryadmin = "SELECT * FROM customer";
 $login_check_admin = pg_query($db, $checkadmin);
 $login_check_user = pg_query($db, $checkuser);
