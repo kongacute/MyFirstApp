@@ -72,8 +72,6 @@ span.psw {
 <h2>Login Form</h2>
 
 <form action="/adminpage.php" method="post">
-  <div class="imgcontainer">
-  </div>
   <div class="container">
     <label for="uname"><b>Username</b></label>
     <input type="text" placeholder="Enter Username" name="uname" required>
