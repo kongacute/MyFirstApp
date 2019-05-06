@@ -63,7 +63,8 @@ if (pg_num_rows($resultcheckuser)>0)
         echo "<td>" . $add. "</td>";
         echo "<td>" . $city . "</td>";
         echo "<td>" . $region . "</td>";
-        echo "<td>" . $phone . "</td>";  
+        echo "<td>" . $phone . "</td>"; 
+        echo pg_num_rows($resultcheckuser); 
         echo "<tr></tr>";
     }
       ?>
