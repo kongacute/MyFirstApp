@@ -17,8 +17,7 @@ $result = pg_query($db, $queryuser);
 ?>
 
 <div class="container">
-  <h2>Customers List</h2>
-  <p>List of customers</p>            
+  <h2>Customers Information</h2>       
   <table class="table table-bordered">
     <tbody>
       <?php
@@ -29,32 +28,37 @@ $result = pg_query($db, $queryuser);
           $city = $results['city'];
           $region = $results['region'];
           $phone = $results['phone'];
-        echo "<tr>";
-        echo "<th>Customer ID</th>";
-        echo "<td>" . $userid . "</td>";
-        echo "</tr>";
-        echo "<tr>";
-        echo "<th>Name</th>";
-        echo "<td>" . $name . "</td>";
-        echo "</tr>";
-        echo "<tr>";  
-        echo "<th>Address</th>";
-        echo "<td>" . $add. "</td>";
-        echo "</tr>";
-        echo "<tr>";
-        echo "<th>City/th>";
-        echo "<td>" . $city . "</td>";
-        echo "</tr>";
-        echo "<tr>";
-        echo "<th>Region</th>";
-        echo "<td>" . $region . "</td>";
-        echo "</tr>";
-        echo "<tr>";
-        echo "<th>Phone</th>";
-        echo "<td>" . $phone . "</td>"; 
-        echo "</tr>";
-    }
-      
+          echo "<tr>";
+          echo "<th>Customer ID:</th>";
+          echo "<td>  </td>";
+          echo "<td>" . $userid . "</td>";
+          echo "</tr>";
+          echo "<tr>";
+          echo "<th>Name:</th>";
+          echo "<td>  </td>";
+          echo "<td>" . $name . "</td>";
+          echo "</tr>";
+          echo "<tr>";  
+          echo "<th>Address:</th>";
+          echo "<td>  </td>";
+          echo "<td>" . $add. "</td>";
+          echo "</tr>";
+          echo "<tr>";
+          echo "<th>City:</th>";
+          echo "<td>  </td>";
+          echo "<td>" . $city . "</td>";
+          echo "</tr>";
+          echo "<tr>";
+          echo "<th>Region:</th>";
+          echo "<td>  </td>";
+          echo "<td>" . $region . "</td>";
+          echo "</tr>";
+          echo "<tr>";
+          echo "<th>Phone</th>";
+          echo "<td>  </td>";
+          echo "<td>" . $phone . "</td>"; 
+          echo "</tr>";
+        }
       ?>
     </tbody>
   </table>
