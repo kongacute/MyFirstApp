@@ -18,37 +18,19 @@ $db = pg_connect($db_url);
 
 $uname = $_POST['uname'];
 $pwd = $_POST['pwd'];
-
-$checkuser = "SELECT COUNT(*) INTO check_user FROM customer WHERE user_name = '$uname' AND password = '$pwd'";
-$checkadmin = "SELECT COUNT(*) INTO check_admin FROM admin WHERE user_name = '$uname' AND  password = '$pwd'";
-$delete_admin_check = "DROP TABLE IF EXISTS check_admin";
-$delete_user_check = "DROP TABLE IF EXISTS check_user";
+$sqlcheckadmin = "SELECT * FROM admin WHERE user_name = '{$uname}' AND password = '{$pwd}'";
+$sqlcheckuser = "SELECT * FROM customer WHERE user_name = '{$uname}' AND password = '{$pwd}'";
 $queryadmin = "SELECT * FROM customer";
-$login_check_admin = pg_query($db, $checkadmin);
-$login_check_user = pg_query($db, $checkuser);
-$row_admin = pg_fetch_assoc($login_check_admin); 
-$row_user = pg_fetch_assoc($login_check_user);
-if ((int)$row_admin['check_admin'] >= 1)
-{
-  $result = pg_query($db, $queryuser);
-  foreach ($result as $results) {
-    $userid = $results['customerid'];
-    $name = $results['name'];
-    $add = $results['address'];
-    $city = $results['city'];
-    $region = $results['region'];
-    $phone = $results['phone'];
-  }
-}
-else if ((int)$row_user['check_user'] >= 1)
+$resultcheckadmin = pg_query($db,$sqlcheckadmin);
+$resultcheckuser = pg_query($db, $sqlcheckuser);
+
+if (pg_count_rows($resultcheckuser))
 {
   header("Location: https://myfirstappbinh.herokuapp.com/userpage.php");
   session_start();
   $_SESSION['uname'] = $uname;
   $_SESSION['pwd'] = $pwd;
 }
-$delete_admin = pg_query($db, $delete_admin_check);
-$delete_user = pg_query($db, $delete_user_check);
 ?>
 <div class="container">
   <h2>Customers List</h2>
@@ -67,7 +49,16 @@ $delete_user = pg_query($db, $delete_user_check);
     </thead>
     <tbody>
       <?php
-      for ($i = 0; $i < 10; $i++) { 
+      if (pg_count_rows($resultcheckadmin)>0)
+      {
+        $result = pg_query($db, $queryadmin);
+        while ($results = pg_fetch_assoc($result)) {
+          $userid = $results['customerid'];
+          $name = $results['name'];
+          $add = $results['address'];
+          $city = $results['city'];
+          $region = $results['region'];
+          $phone = $results['phone'];
         echo "<tr></tr>";
         echo "<td>" . $userid . "</td>";  
         echo "<td>" . $name . "</td>";  
@@ -78,6 +69,7 @@ $delete_user = pg_query($db, $delete_user_check);
         echo "<td>" . $phone . "</td>";  
         echo "<tr></tr>";
       }
+    }
       ?>
     </tbody>
   </table>
