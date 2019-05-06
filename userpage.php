@@ -9,7 +9,8 @@ session_start();
 $db_url = getenv("DATABASE_URL") ?: "postgres://stejeexemgbraf:a5a875444f2192a1fb8982b181a046ce7c194400d26f9c583934ddb28d6a7b80@ec2-50-19-127-115.compute-1.amazonaws.com:5432/d4brobjaq8sj8t";
 
 $db = pg_connect($db_url);
-
+$uname = pg_escape_string($_SESSION['uname']);
+$pwd = pg_escape_string($_SESSION['pwd']);
 $queryuser = "SELECT * FROM customer WHERE user_name = '{$uname}' AND password = '{$pwd}'";
 $result = pg_query($db, $queryuser);
 
