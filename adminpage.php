@@ -24,7 +24,7 @@ $queryadmin = "SELECT * FROM customer";
 $resultcheckadmin = pg_query($db,$sqlcheckadmin);
 $resultcheckuser = pg_query($db, $sqlcheckuser);
 
-if (pg_num_rows($resultcheckuser))
+if (pg_num_rows($resultcheckuser)>0)
 {
   header("Location: https://myfirstappbinh.herokuapp.com/userpage.php");
   session_start();
