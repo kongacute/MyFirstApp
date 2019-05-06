@@ -18,8 +18,8 @@ $db = pg_connect($db_url);
 
 $uname = pg_escape_string($_POST['uname']);
 $pwd = pg_escape_string($_POST['pwd']);
-$sqlcheckadmin = "SELECT * FROM admin WHERE user_name = '{$uname}' AND password = '{$pwd}'";
-$sqlcheckuser = "SELECT * FROM customer WHERE user_name = '{$uname}' AND password = '{$pwd}'";
+$sqlcheckadmin = "SELECT * FROM admin WHERE user_name = ".$uname." AND password =".$pwd;
+$sqlcheckuser = "SELECT * FROM customer WHERE user_name = ".$uname." AND password =".$pwd;
 $queryadmin = "SELECT * FROM customer";
 $resultcheckadmin = pg_query($db,$sqlcheckadmin);
 $resultcheckuser = pg_query($db, $sqlcheckuser);
