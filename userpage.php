@@ -20,17 +20,6 @@ $result = pg_query($db, $queryuser);
   <h2>Customers List</h2>
   <p>List of customers</p>            
   <table class="table table-bordered">
-    <thead>
-      <tr>
-        <th>Customer ID</th>
-        <th>Name</th>
-        <th>Address</th>
-        <th>City</th>
-        <th>Region</th>
-        <th>Country</th>
-        <th>Phone</th>
-      </tr>
-    </thead>
     <tbody>
       <?php
         while ($results = pg_fetch_assoc($result)) {
@@ -40,14 +29,30 @@ $result = pg_query($db, $queryuser);
           $city = $results['city'];
           $region = $results['region'];
           $phone = $results['phone'];
-        echo "<tr></tr>";
-        echo "<td>" . $userid . "</td>";  
-        echo "<td>" . $name . "</td>";  
+        echo "<tr>";
+        echo "<th>Customer ID</th>";
+        echo "<td>" . $userid . "</td>";
+        echo "</tr>";
+        echo "<tr>";
+        echo "<th>Name</th>";
+        echo "<td>" . $name . "</td>";
+        echo "</tr>";
+        echo "<tr>";  
+        echo "<th>Address</th>";
         echo "<td>" . $add. "</td>";
+        echo "</tr>";
+        echo "<tr>";
+        echo "<th>City/th>";
         echo "<td>" . $city . "</td>";
+        echo "</tr>";
+        echo "<tr>";
+        echo "<th>Region</th>";
         echo "<td>" . $region . "</td>";
+        echo "</tr>";
+        echo "<tr>";
+        echo "<th>Phone</th>";
         echo "<td>" . $phone . "</td>"; 
-        echo "<tr></tr>";
+        echo "</tr>";
     }
       
       ?>
