@@ -26,7 +26,7 @@ $resultcheckuser = pg_query($db, $sqlcheckuser);
 
 if (pg_num_rows($resultcheckuser)>0)
 {
-  header("Location: https://myfirstappbinh.herokuapp.com/userpage.php");
+  header("Location: userpage.php");
   session_start();
   $_SESSION['uname'] = $uname;
   $_SESSION['pwd'] = $pwd;
