@@ -12,13 +12,7 @@ $db = pg_connect($db_url);
 
 $queryuser = "SELECT * FROM customer WHERE user_name = '$uname' AND password = '$pwd'";
 $result = pg_query($db, $queryuser);
-foreach ($result as $results) {
-   $userid = $results['customerid'];
-   $name = $results['name'];
-   $add = $results['address'];
-   $city = $results['city'];
-   $region = $results['region'];
-   $phone = $results['phone'];
+
 ?>
 
 <div class="container">
@@ -38,18 +32,23 @@ foreach ($result as $results) {
     </thead>
     <tbody>
       <?php
-      for ($i = 0; $i < 10; $i++) { 
+        while ($results = pg_fetch_assoc($result)) {
+          $userid = $results['customerid'];
+          $name = $results['name'];
+          $add = $results['address'];
+          $city = $results['city'];
+          $region = $results['region'];
+          $phone = $results['phone'];
         echo "<tr></tr>";
-        echo "<td>" . $userid[$i] . "</td>";  
-        echo "<td>" . $name[$i] . "</td>";  
-        echo "<td>" . $add[$i] . "</td>";
-        echo "<td>" . $city[$i] . "</td>";
-        echo "<td>" . $region[$i] . "</td>";
-        echo "<td>" . $country[$i] . "</td>";
-        echo "<td>" . $phone[$i] . "</td>";  
+        echo "<td>" . $userid . "</td>";  
+        echo "<td>" . $name . "</td>";  
+        echo "<td>" . $add. "</td>";
+        echo "<td>" . $city . "</td>";
+        echo "<td>" . $region . "</td>";
+        echo "<td>" . $phone . "</td>"; 
         echo "<tr></tr>";
-      }
-}
+    }
+      
       ?>
     </tbody>
   </table>
