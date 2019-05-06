@@ -49,8 +49,7 @@ if (pg_num_rows($resultcheckuser)>0)
     </thead>
     <tbody>
       <?php
-      if (pg_num_rows($resultcheckadmin)>0)
-      {
+      
         $result = pg_query($db, $queryadmin);
         while ($results = pg_fetch_assoc($result)) {
           $userid = $results['customerid'];
@@ -68,7 +67,6 @@ if (pg_num_rows($resultcheckuser)>0)
         echo "<td>" . $country . "</td>";
         echo "<td>" . $phone . "</td>";  
         echo "<tr></tr>";
-      }
     }
       ?>
     </tbody>
