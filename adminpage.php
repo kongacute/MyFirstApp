@@ -57,15 +57,15 @@ if (pg_num_rows($resultcheckuser)>0)
           $city = $results['city'];
           $region = $results['region'];
           $phone = $results['phone'];
-        echo "<tr></tr>";
-        echo "<td>" . $userid . "</td>";  
-        echo "<td>" . $name . "</td>";  
-        echo "<td>" . $add. "</td>";
-        echo "<td>" . $city . "</td>";
-        echo "<td>" . $region . "</td>";
-        echo "<td>" . $phone . "</td>"; 
-        echo "<tr></tr>";
-    }
+          echo "<tr></tr>";
+          echo "<td>" . $userid . "</td>";  
+          echo "<td>" . $name . "</td>";  
+          echo "<td>" . $add. "</td>";
+          echo "<td>" . $city . "</td>";
+          echo "<td>" . $region . "</td>";
+          echo "<td>" . $phone . "</td>"; 
+          echo "<tr></tr>";
+        }
       ?>
     </tbody>
   </table>
