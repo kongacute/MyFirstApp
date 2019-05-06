@@ -43,7 +43,6 @@ if (pg_num_rows($resultcheckuser)>0)
         <th>Address</th>
         <th>City</th>
         <th>Region</th>
-        <th>Country</th>
         <th>Phone</th>
       </tr>
     </thead>
@@ -64,7 +63,6 @@ if (pg_num_rows($resultcheckuser)>0)
         echo "<td>" . $add. "</td>";
         echo "<td>" . $city . "</td>";
         echo "<td>" . $region . "</td>";
-        echo "<td>" . $country . "</td>";
         echo "<td>" . $phone . "</td>";  
         echo "<tr></tr>";
     }
