@@ -49,6 +49,7 @@ foreach ($result as $results) {
         echo "<td>" . $phone[$i] . "</td>";  
         echo "<tr></tr>";
       }
+}
       ?>
     </tbody>
   </table>
