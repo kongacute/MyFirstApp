@@ -24,7 +24,7 @@ $queryadmin = "SELECT * FROM customer";
 $resultcheckadmin = pg_query($db,$sqlcheckadmin);
 $resultcheckuser = pg_query($db, $sqlcheckuser);
 
-if (pg_count_rows($resultcheckuser))
+if (pg_num_rows($resultcheckuser))
 {
   header("Location: https://myfirstappbinh.herokuapp.com/userpage.php");
   session_start();
@@ -49,7 +49,7 @@ if (pg_count_rows($resultcheckuser))
     </thead>
     <tbody>
       <?php
-      if (pg_count_rows($resultcheckadmin)>0)
+      if (pg_num_rows($resultcheckadmin)>0)
       {
         $result = pg_query($db, $queryadmin);
         while ($results = pg_fetch_assoc($result)) {
